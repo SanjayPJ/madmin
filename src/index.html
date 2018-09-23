@@ -22,7 +22,7 @@
                 <a href="#!" class="brand-logo">Madmin</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="index.html">Dashboard</a></li>
+                    <li class="active"><a href="index.html">Dashboard</a></li>
                     <li><a href="posts.html">Posts</a></li>
                     <li><a href="categories.html">Categories</a></li>
                     <li><a href="comments.html">Comments</a></li>
@@ -207,7 +207,7 @@
                             <tr>
                                 <td>Post One</td>
                                 <td>Web Design</td>
-                                <td><button class="btn blue darken-2">Details</button></td>
+                                <td><a class="btn blue darken-2" href="detalils.html">Details</a></td>
                             </tr>
                             <tr>
                                 <td>Post Two</td>
@@ -231,9 +231,92 @@
             <br>
         </div>
     </footer>
+    <!-- fixed action button -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating blue modal-trigger" href="#modal1"><i class=" material-icons">edit</i></a></li>
+            <li><a class="btn-floating blue modal-trigger" href="#modal2"><i class="material-icons">folder</i></a></li>
+            <li><a class="btn-floating blue modal-trigger" href="#modal3"><i class="material-icons">face</i></a></li>
+        </ul>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Add Post</h4>
+            <div class="input-field">
+                <input id="title" type="text" class="validate">
+                <label for="title">Title</label>
+            </div>
+            <div class="input-field">
+                <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <label>Category</label>
+            </div>
+            <div class="input-field">
+                <textarea name="editor1" id="textarea1" class="materialize-textarea">
+
+
+                </textarea>
+                <label for="textarea1">Body</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat blue white-text">Submit</a>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Add Category</h4>
+            <div class="input-field">
+                <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <label>Category</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat blue white-text">Submit</a>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <h4>Add User</h4>
+            <div class="input-field">
+                <input id="title" type="text" class="validate">
+                <label for="title">Name</label>
+            </div>
+            <div class="input-field">
+                <input id="title" type="email" class="validate">
+                <label for="title">Email</label>
+            </div>
+            <div class="input-field">
+                <input id="title" type="password" class="validate">
+                <label for="title">Password</label>
+            </div>
+            <div class="input-field">
+                <input id="title" type="password" class="validate">
+                <label for="title">Confirm Password</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat blue white-text">Submit</a>
+        </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
     <script>
         $('section').hide()
         $('footer').hide()
@@ -255,7 +338,13 @@
                     }
                 });
             });
+            $('.fixed-action-btn').floatingActionButton();
+            $('.modal').modal();
+            $('select').formSelect();
         }, 1000)
+    </script>
+    <script>
+        CKEDITOR.replace('editor1');
     </script>
 </body>
 
